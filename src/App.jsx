@@ -9,6 +9,8 @@ function App() {
   const [empty,setEmpty] = useState(false)
   const [city,setCity] = useState('Lucknow')
   const [data,setData] = useState({})
+  
+  
   function fetchData(cityPar){
     if(city===""){
       setEmpty(true)
@@ -31,6 +33,11 @@ function App() {
       })
       .catch(err=>console.log(err))
     }
+  }
+
+  function goBack(){
+    setData({})
+    setFetched(false)
   }
 
   return (
@@ -70,13 +77,11 @@ function App() {
                     <div className="info" >Min : {kelvinToCelsius(data.main.temp_min)}° </div>
                     <div className="info" >Max : {kelvinToCelsius(data.main.temp_max)}° </div>
                     <div className="info" >Humidity : {data.main.humidity}</div>
-                    <button className="search" onClick={()=>window.location.reload()}> <i className="fas fa-arrow-left"></i> Go back</button>
+                    <button className="search" onClick={()=>goBack()}> <i className="fas fa-arrow-left"></i> Go back</button>
                   </div>
                 </div>
                 <div className="section image">
-                  {
-                    
-                  }
+                  {/* Might add image later */}
                 </div>
               </div>
           </div>
